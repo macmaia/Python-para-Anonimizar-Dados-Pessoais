@@ -1,0 +1,12 @@
+# _toc.yml
+# [BOOK-TOC] 7 capítulos. Cada um ensina um conceito que existe sem o tarja, e resolve com ele a partir do 2.
+format: jb-book
+root: intro
+chapters:
+  - file: 01-por-que-formato-nao-basta
+  - file: 02-digito-verificador
+  - file: 03-quando-o-contexto-decide
+  - file: 04-mascarar-pseudonimizar-anonimizar
+  - file: 05-antes-de-mandar-para-o-llm
+  - file: 06-medir-se-esta-funcionando
+  - file: 07-o-que-nada-disso-faz

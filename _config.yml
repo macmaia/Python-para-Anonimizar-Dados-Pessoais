@@ -1,0 +1,40 @@
+# _config.yml
+# [BOOK] Jupyter Book. O livro é o conteúdo, o tarja é o instrumento.
+title: Python para Anonimizar Dados Pessoais
+author: Maria Alice Maia
+copyright: "2026"
+logo: ""
+only_build_toc_files: true
+
+execute:
+  # [BOOK-EXEC] as células rodam na construção, então o que está na página é saída de verdade e não texto
+  #   copiado. Se uma célula quebrar, a construção falha, o que é o comportamento certo para um livro
+  #   que ensina a rodar código.
+  execute_notebooks: force
+  timeout: 120
+
+repository:
+  url: https://github.com/macmaia/Python-para-Anonimizar-Dados-Pessoais
+  branch: main
+
+# [BOOK-COLAB] cada capítulo ganha um botão que o abre como caderno executável no Colab. É o mesmo arquivo
+#   markdown, não há caderno separado para manter: o Colab recebe o capítulo convertido. Quem só quer ler
+#   lê a página, quem quer mexer clica e roda, e a primeira célula do capítulo instala o tarja.
+launch_buttons:
+  colab_url: https://colab.research.google.com
+  notebook_interface: jupyterlab
+  thebe: false
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  extra_footer: |
+    <p>Texto sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br">CC BY 4.0</a>.
+    Código sob Apache 2.0. Contato: tarja@micah6ai.com</p>
+
+sphinx:
+  config:
+    language: pt_BR
+    html_theme_options:
+      repository_provider: github

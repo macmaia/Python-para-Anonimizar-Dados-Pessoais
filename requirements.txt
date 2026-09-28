@@ -1,0 +1,5 @@
+# requirements.txt
+# [BOOK-DEPS] o mínimo para construir o livro e rodar as células.
+# Verificado em 27/09/2026 com jupyter-book 1.0.4.post1 e Python 3.13: constrói sem ajuste.
+jupyter-book>=1,<2
+tarja>=0.8
