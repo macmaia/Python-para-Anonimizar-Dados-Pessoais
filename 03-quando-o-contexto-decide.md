@@ -27,14 +27,14 @@ Nos dois casos, a única informação adicional disponível é o que está escri
 ```{code-cell}
 import tarja
 
-print(tarja.find("22290-140"))
+print(tarja.find("04543-907"))
 ```
 
 Vazio. Cinco dígitos, traço, três dígitos é um formato que qualquer coisa pode ter: faixa de numeração, código
 de produto, intervalo. Sozinho, não é informação suficiente.
 
 ```{code-cell}
-for m in tarja.find("CEP 22290-140"):
+for m in tarja.find("CEP 04543-907"):
     print(m.entity, "score", m.score, "contexto", m.has_context)
 ```
 
@@ -56,7 +56,7 @@ A janela de contexto olha alguns caracteres antes e depois do achado, e procura 
 comparação acontece sobre texto em minúscula e sem acento, e por isso todas estas funcionam:
 
 ```{code-cell}
-for texto in ["CEP 22290-140", "cep 22290-140", "Cep: 22290-140", "CÉP 22290-140"]:
+for texto in ["CEP 04543-907", "cep 04543-907", "Cep: 04543-907", "CÉP 04543-907"]:
     print(f"{texto!r:22} -> {len(tarja.find(texto))} achado(s)")
 ```
 

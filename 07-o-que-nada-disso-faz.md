@@ -24,7 +24,7 @@ são ressalvas de rodapé, é o contorno da ferramenta, e conhecer o contorno é
 ```{code-cell}
 import tarja
 
-texto = ("Maria Alice Souza, residente na Rua das Laranjeiras 412, apartamento 301, "
+texto = ("Maria da Silva, na Av. Presidente Juscelino Kubitschek 1909, conjunto 181, "
          "diagnosticada com hipertensão em consulta de 12/03/2024.")
 print(tarja.find(texto))
 ```
@@ -32,8 +32,8 @@ print(tarja.find(texto))
 Vazio. Nome, endereço, data e condição de saúde estão todos ali, e nenhum é detectado.
 
 Isso não é lacuna a preencher depois, é outro problema. Identificador estruturado tem regra de formação, e é
-por isso que ele pode ser reconhecido com aritmética. Nome não tem: "Souza" é sobrenome e é também o nome de
-uma rua e de um município. Endereço não tem. Reconhecer esses depende de modelo de linguagem treinado para a
+por isso que ele pode ser reconhecido com aritmética. Nome não tem: "Silva" é sobrenome e aparece também em
+nome de rua e de município. Endereço não tem. Reconhecer esses depende de modelo de linguagem treinado para a
 tarefa, com uma taxa de erro própria, que precisa ser medida separadamente e que é bem pior do que a de
 dígito verificador.
 
