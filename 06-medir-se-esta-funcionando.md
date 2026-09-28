@@ -7,6 +7,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+myst:
+  html_meta:
+    description: "Como medir a sua propria taxa de erro em deteccao de dado pessoal, com amostragem, intervalo de confianca e precisao e recall calculados no seu corpus."
 ---
 
 # 6. Medir se está funcionando
@@ -37,7 +40,7 @@ pior, porque um mapa errado leva a decisão errada.
 
 Não existe configuração que minimize os dois. Existe escolher qual deles você prefere cometer.
 
-## Precisão e revocação, sem mistério
+## O que são precisão e revocação aqui?
 
 **Precisão** responde: do que eu apontei, quanto estava certo. **Revocação** responde: do que existia, quanto
 eu achei.
@@ -62,7 +65,7 @@ print(avaliar(gold, pred))
 Repare que um achado conta como certo só se **o tipo e a posição** baterem. Acertar que há algo ali e errar o
 tipo é erro, porque o tratamento depende do tipo.
 
-## A parte que ninguém faz
+## Como amostrar e anotar o seu próprio corpus
 
 Precisão exige saber a resposta certa, e a resposta certa não vem de graça. Alguém precisa olhar e julgar.
 
@@ -83,7 +86,7 @@ Repare que isso mede **precisão** e não revocação. Revocação exige o camin
 anotá-los por inteiro, do zero, sem olhar a saída da ferramenta. É bem mais caro, e é por isso que quase todo
 relatório do mercado informa só precisão, sem dizer que está informando só metade.
 
-## O intervalo importa mais do que parece
+## Por que reportar intervalo de confiança?
 
 ```{code-cell}
 def wilson(acertos: int, total: int, z: float = 1.96) -> tuple[float, float]:

@@ -7,6 +7,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+myst:
+  html_meta:
+    description: "A diferenca pratica entre mascarar, pseudonimizar e anonimizar dado pessoal em Python, e qual das tres a LGPD trata como reversivel."
 ---
 
 # 4. Mascarar, pseudonimizar, anonimizar
@@ -22,7 +25,7 @@ São decisões diferentes sobre o que você vai conseguir fazer depois.
 A pergunta que escolhe entre as três não é "quanto de privacidade eu quero". É: **preciso saber que dois
 registros são da mesma pessoa?** e **preciso conseguir voltar ao valor original?**
 
-## Apagar
+## Mascarar: apagar o valor
 
 ```{code-cell}
 import tarja
@@ -37,7 +40,7 @@ com nada. Todo CPF do acervo vira o mesmo rótulo.
 É a escolha certa quando o identificador não tem função nenhuma no que vem depois. Você quer ler os chamados
 para entender do que as pessoas reclamam, e o número não participa disso.
 
-## Numerar dentro do documento
+## Pseudonimizar dentro de um documento
 
 ```{code-cell}
 print(tarja.mask("Chamado 3. Titulares 123.456.789-09 e 529.982.247-25.", strategy="pseudonym"))
@@ -70,7 +73,7 @@ comparável e não é, e um analista que junte por rótulo vai concluir que são
 Se o seu pipeline processa documento por documento e alguém vai agregar os resultados depois, esta é a
 estratégia que produz o erro mais silencioso dos três.
 
-## Derivar de uma chave
+## Pseudônimo estável derivado de uma chave
 
 ```{code-cell}
 import secrets
@@ -112,7 +115,7 @@ O pedaço de quatro caracteres no meio do rótulo é o marcador de geração da 
 marcador. É o que permite perceber que dois rótulos vieram de chaves diferentes em vez de descobrir isso por
 uma estatística que não fecha.
 
-## O que isso é, juridicamente
+## O que a LGPD considera anonimizado?
 
 Rótulo estável é **pseudonimização, não anonimização**, e a diferença tem consequência.
 
@@ -136,7 +139,7 @@ Consequências práticas: a chave não vai no código nem no repositório, vem d
 acesso à chave tem acesso ao dado, e isso entra no seu controle de acesso. E se a chave vazar, o conjunto
 mascarado inteiro vazou junto, retroativamente.
 
-## Escolhendo
+## Qual das três usar?
 
 | Preciso... | Estratégia |
 |---|---|

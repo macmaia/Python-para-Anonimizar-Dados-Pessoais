@@ -7,6 +7,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+myst:
+  html_meta:
+    description: "Por que uma regex de formato para CPF gera falso positivo em massa, e quanto ruido ela aceita de fato, medido em Python."
 ---
 
 # 1. Por que procurar por formato não funciona
@@ -20,7 +23,7 @@ kernelspec:
 Um CPF tem onze dígitos. A primeira solução que quase todo mundo escreve é uma expressão regular que procura
 onze dígitos. Este capítulo mostra por que ela não serve, com números, e o que está faltando.
 
-## A primeira tentativa
+## Por que uma regex de CPF não basta?
 
 ```{code-cell}
 import re
@@ -45,7 +48,7 @@ protocolo, matrícula, número de processo, código de rastreamento, identificad
 quartos do que a expressão regular achou ali é ruído, e num acervo de verdade a proporção é pior, porque
 documento administrativo tem muito mais protocolo que CPF.
 
-## O tamanho do problema
+## Quanto ruído a regex de formato aceita?
 
 Quanto disso é ruído? Dá para estimar sem adivinhar. Vamos gerar sequências de onze dígitos ao acaso e contar
 quantas a expressão regular aceita.
@@ -75,7 +78,7 @@ E tem o efeito contrário, mais perigoso. Se você mascarar tudo o que essa expr
 número de protocolo, matrícula e processo, que a operação precisa. Alguém vai reclamar, e a resposta fácil
 vai ser afrouxar a regra, o que traz de volta o dado pessoal que você queria tirar.
 
-## O que está faltando
+## O que falta é o dígito verificador
 
 Um CPF não é qualquer sequência de onze dígitos. Os dois últimos dígitos são **calculados** a partir dos nove
 primeiros, por uma regra pública e determinística. Um número em que essa conta não fecha não é um CPF.
@@ -108,7 +111,7 @@ for achado in CPF_POR_FORMATO.finditer(texto):
 
 Os três números que não eram CPF somem. O CPF fica.
 
-## O que isso custa
+## Quanto custa um falso positivo de CPF
 
 Nada é de graça, e vale saber o preço antes de comemorar.
 

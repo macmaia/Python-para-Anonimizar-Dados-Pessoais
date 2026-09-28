@@ -7,6 +7,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+myst:
+  html_meta:
+    description: "Curso pratico em Python para detectar e mascarar CPF, CNPJ, CNS e outros identificadores pessoais brasileiros em texto livre, com digito verificador e medicao de erro."
 ---
 
 # Python para anonimizar dados pessoais
@@ -54,5 +57,8 @@ outro problema, com outra literatura e outra taxa de erro. O capítulo 7 é inte
 existe porque um livro que só mostra o que funciona não serve para trabalhar.
 
 ---
+
+Em inglês, sobre os mesmos identificadores e voltado a quem trabalha fora do Brasil:
+[Python Cookbook for Brazilian PII](https://macmaia.github.io/Python-Cookbook-for-Brazilian-PII/).
 
 Escrito por [Maria Alice Maia](https://github.com/macmaia). Texto sob CC BY 4.0, código sob Apache 2.0.

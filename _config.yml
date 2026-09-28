@@ -12,6 +12,9 @@ execute:
   #   que ensina a rodar código.
   execute_notebooks: force
   timeout: 120
+  # [BOOK-EXEC-STRICT] sem isto uma celula quebrada vira apenas aviso e o build fica verde com o
+  #   capitulo morto, que e o oposto do que este livro promete.
+  raise_on_error: true
 
 repository:
   url: https://github.com/macmaia/Python-para-Anonimizar-Dados-Pessoais
@@ -33,8 +36,68 @@ html:
     <p>Texto sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br">CC BY 4.0</a>.
     Código sob Apache 2.0. Contato: tarja@micah6ai.com</p>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Python para anonimizar dados pessoais",
+      "url": "https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/",
+      "inLanguage": "pt-BR",
+      "description": "Curso pratico em Python para detectar e mascarar CPF, CNPJ, CNS e outros identificadores pessoais brasileiros em texto livre.",
+      "author": {
+        "@type": "Person",
+        "name": "Maria Alice Maia",
+        "sameAs": [
+          "https://github.com/macmaia"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isAccessibleForFree": true,
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Personal data protection"
+        },
+        {
+          "@type": "Thing",
+          "name": "Data anonymisation"
+        },
+        {
+          "@type": "Thing",
+          "name": "Brazilian personal identifiers"
+        },
+        {
+          "@type": "Thing",
+          "name": "Python programming"
+        }
+      ],
+      "workExample": {
+        "@type": "SoftwareSourceCode",
+        "codeRepository": "https://github.com/macmaia/Python-para-Anonimizar-Dados-Pessoais",
+        "programmingLanguage": "Python"
+      },
+      "isRelatedTo": {
+        "@type": "Book",
+        "url": "https://macmaia.github.io/Python-Cookbook-for-Brazilian-PII/"
+      }
+    }
+    </script>
 sphinx:
+  # [SEO-EXT] sitemap needs html_baseurl; opengraph writes description and og: tags into every page.
+  extra_extensions:
+    - sphinx_sitemap
+    - sphinxext.opengraph
   config:
     language: pt_BR
+    # [SEO-CANONICAL] without html_baseurl Sphinx emits no canonical link, and any mirror of a page
+    #   competes with the book for it.
+    html_baseurl: https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/
+    sitemap_url_scheme: "{link}"
+    ogp_site_url: https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/
+    ogp_site_name: "Python para anonimizar dados pessoais"
+    ogp_description_length: 200
+    # [SEO-TITLE] deliberately different from the H1 of intro.md, otherwise <title> repeats the name twice.
+    html_title: "Detectar CPF, CNPJ e PII brasileiro em Python"
+    html_extra_path: ["_extra"]
     html_theme_options:
       repository_provider: github

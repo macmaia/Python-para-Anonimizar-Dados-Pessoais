@@ -1,0 +1,8 @@
+# Python para anonimizar dados pessoais
+
+> Curso pratico em Python para detectar e mascarar CPF, CNPJ, CNS e outros identificadores pessoais brasileiros em texto livre, com digito verificador e medicao de erro.
+
+- Sitemap: https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/sitemap.xml
+- Library: https://pypi.org/project/tarja/
+- Source: https://github.com/macmaia/Python-para-Anonimizar-Dados-Pessoais
+- Companion book: https://macmaia.github.io/Python-Cookbook-for-Brazilian-PII/

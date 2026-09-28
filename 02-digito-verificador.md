@@ -7,6 +7,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+myst:
+  html_meta:
+    description: "Como calcular o digito verificador de CPF e CNPJ em Python, modulo 11 passo a passo, e por que ele elimina a maior parte dos falsos positivos."
 ---
 
 # 2. O dígito verificador, escrito do zero
@@ -20,7 +23,7 @@ O capítulo anterior terminou dizendo que a informação que falta está na regr
 essa regra. São quinze linhas, e escrevê-las muda a forma como você julga qualquer biblioteca que faça isso
 por você depois.
 
-## A conta
+## Como se calcula o dígito verificador do CPF?
 
 Os nove primeiros dígitos de um CPF são o número. Os dois últimos são conferência, calculados assim: multiplique
 cada dígito por um peso que decresce, some, tire o resto por onze, e transforme o resto no dígito.
@@ -44,7 +47,7 @@ primeira produziu.
 O `resto == 10` existe porque o resto da divisão por onze pode dar dez, que não cabe num dígito. A convenção é
 usar zero.
 
-## O validador
+## Um validador de CPF em Python, do zero
 
 ```{code-cell}
 def cpf_valido(valor: str) -> bool:
@@ -72,7 +75,7 @@ for valor, esperado in casos:
     print(f"{valor:18} {str(obtido):5} {'ok' if obtido == esperado else 'ERRO'}")
 ```
 
-## A linha que parece sobrando
+## Por que rejeitar CPF de dígitos repetidos?
 
 Olhe de novo para esta:
 
@@ -99,7 +102,7 @@ como CPF, e você vai passar uma tarde investigando por que há dez mil CPFs id�
 
 Essa regra não está no algoritmo. Está na prática, e você só descobre quando bate nela.
 
-## As outras regras, em uma frase cada
+## CNPJ, CNS, título e RENAVAM, uma frase cada
 
 A mesma ideia reaparece com variações, e é aqui que reimplementar deixa de ser razoável.
 
@@ -123,7 +126,7 @@ aproximadamente um em cada dez números compridos, então sem o prefixo você vo
 Sete famílias de algoritmo, dezessete tipos de identificador, e cada uma com uma fonte normativa diferente que
 precisa ser localizada, lida e conferida.
 
-## A partir daqui, a biblioteca
+## A partir daqui, a biblioteca faz a conta
 
 ```{code-cell}
 import tarja

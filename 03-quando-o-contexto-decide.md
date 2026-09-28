@@ -7,6 +7,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+myst:
+  html_meta:
+    description: "O que fazer com CEP, placa e telefone, que nao tem digito verificador, e por que filtrar por score nao resolve o falso positivo que esta perto de uma palavra de contexto."
 ---
 
 # 3. Quando o formato não basta e o contexto decide
@@ -22,7 +25,7 @@ o bastante para que o acaso produza colisão.
 
 Nos dois casos, a única informação adicional disponível é o que está escrito em volta.
 
-## O caso simples
+## Por que o CEP exige uma palavra de contexto?
 
 ```{code-cell}
 import tarja
@@ -50,7 +53,7 @@ for texto in ["ABC1D23", "veiculo de placa ABC1D23"]:
     print(f"{texto!r:28} -> score {score}")
 ```
 
-## Como a comparação é feita
+## Como a janela de contexto compara o texto?
 
 A janela de contexto olha alguns caracteres antes e depois do achado, e procura ali as palavras da entidade. A
 comparação acontece sobre texto em minúscula e sem acento, e por isso todas estas funcionam:
@@ -64,7 +67,7 @@ Isso importa mais do que parece. Texto real tem caixa inconsistente, acento erra
 colada. Uma comparação literal perderia a maior parte dos casos, e quem estivesse medindo concluiria que a
 detecção é ruim quando na verdade o pré-processamento é que estava.
 
-## O caso difícil, e ele é honesto
+## Por que filtrar por score não separa título de ano?
 
 Agora o exemplo que dá nome a este capítulo.
 
@@ -115,7 +118,7 @@ for m in tarja.find(longe, min_score=0.0):
 
 Agora sim: 0,95 para o título, 0,8 para os anos, e o filtro funciona.
 
-## O que aprender com isso
+## O limiar é propriedade do seu texto, não do método
 
 O limiar de score separa verdadeiro de falso **quando o falso positivo está longe de qualquer palavra de
 contexto**. Isso é uma propriedade do seu texto, não do método.

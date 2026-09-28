@@ -7,6 +7,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+myst:
+  html_meta:
+    description: "Os limites da deteccao por digito verificador: nome, endereco e dado clinico nao sao detectados, e ausencia de achado nao e prova de ausencia."
 ---
 
 # 7. O que nada disso faz
@@ -100,6 +103,16 @@ continua dentro da lei.
 
 Uma ferramenta reduz risco. Ela não transfere responsabilidade, e nenhum relatório dela serve como atestado
 de conformidade.
+
+## O cofre não atravessa um índice
+
+O `reveal()` do capítulo 4 depende de um cofre local ao processo, de uso único e válido por uma hora. Foi
+escolhido assim de propósito: um mapa persistente entre token e valor seria um banco de dado pessoal, e é
+exatamente isso que a pseudonimização existe para evitar.
+
+A consequência é limitação de escopo, não defeito. O `mask` serve para qualquer pipeline, inclusive ingestão em
+índice vetorial. O `reveal` só serve dentro do mesmo processo e da mesma hora. Quem precisa devolver o valor
+original semanas depois precisa de um guarda-chaves próprio, e o capítulo 8 trata disso.
 
 ## Uso dual
 

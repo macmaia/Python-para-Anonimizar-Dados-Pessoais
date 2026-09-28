@@ -7,6 +7,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+myst:
+  html_meta:
+    description: "Como remover dado pessoal do texto antes de enviar para um modelo de linguagem, e como devolver o valor original na resposta sem guardar o valor."
 ---
 
 # 5. Antes de mandar texto para um modelo de linguagem
@@ -24,7 +27,7 @@ O capítulo anterior terminou nas três estratégias. Nenhuma serve aqui, porque
 neste caso você precisa do valor de volta: o modelo responde falando do titular, e a resposta tem que fazer
 sentido para quem a lê.
 
-## O ciclo
+## Como mascarar antes do LLM e devolver depois?
 
 ```{code-cell}
 import tarja
