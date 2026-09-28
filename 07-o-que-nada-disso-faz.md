@@ -131,11 +131,6 @@ de quem faz, em vez de acidente de quem não percebeu.
 Não pega nome nem endereço. Não prova ausência. Não confirma que alguém existe. Falha em texto digitalizado
 com ruído. Não transfere acurácia do fornecedor para o seu caso, nem responsabilidade legal para a ferramenta.
 
-Se depois destes sete capítulos você tem uma noção clara do que consegue afirmar e do que não consegue, o
-livro cumpriu o que queria. O resto é medir.
-
----
-
-Código e documentação do instrumento: [tarja](https://macmaia.github.io/tarja/).
-Versão em inglês, para times internacionais:
-[Python Cookbook for Brazilian PII](https://macmaia.github.io/Python-Cookbook-for-Brazilian-PII/).
+Todos esses limites valem para um texto de cada vez. O capítulo 8 trata do caso em que o texto não passa, ele
+fica: ingestão para busca com recuperação, onde o corte em pedaços destrói a própria aritmética que reconheceria
+o dado.

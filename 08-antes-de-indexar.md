@@ -129,3 +129,12 @@ livro que fingisse haver seria pior que este.
 
 O RAG não é caso especial de "mandar texto para o modelo". É o caso em que o texto fica, o corte destrói a
 aritmética que reconheceria o dado, e a pergunta é um segundo ponto de vazamento que quase ninguém protege.
+
+Se depois destes oito capítulos você tem uma noção clara do que consegue afirmar e do que não consegue, o livro
+cumpriu o que queria. O resto é medir.
+
+---
+
+Código e documentação do instrumento: [tarja](https://macmaia.github.io/tarja/).
+Versão em inglês, para times internacionais:
+[Python Cookbook for Brazilian PII](https://macmaia.github.io/Python-Cookbook-for-Brazilian-PII/).

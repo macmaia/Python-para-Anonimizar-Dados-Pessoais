@@ -1,6 +1,7 @@
 # requirements.txt
 # [BOOK-DEPS] o mínimo para construir o livro e rodar as células.
-# Verificado em 27/09/2026 com jupyter-book 1.0.4.post1 e Python 3.13: constrói sem ajuste.
+# Verificado em 28/09/2026: jupyter-book 1.0.4.post1, sphinx 7.4.7, sphinx-sitemap 2.9.0,
+#   sphinxext-opengraph 0.13.0, tarja 0.8.0, Python 3.13 local e 3.12 no CI. Constroi sem aviso.
 jupyter-book>=1,<2
 tarja>=0.8
 sphinx-sitemap>=2.6
