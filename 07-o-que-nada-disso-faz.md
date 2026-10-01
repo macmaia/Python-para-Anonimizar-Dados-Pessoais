@@ -71,8 +71,9 @@ quem quer proteger e seria imediatamente mais útil ainda para quem quer garimpa
 O teste mais desconfortável é o de caracteres trocados por reconhecimento óptico, o O maiúsculo no lugar do
 zero e o l minúsculo no lugar do um.
 
-Na medição publicada do tarja, o subconjunto com esse tipo de ruído fica em **F1 de 0,266**, contra números
-acima de 0,95 no texto limpo. Não é degradação, é falha.
+Na medição publicada do tarja, o subconjunto com esse tipo de ruído fica em **F1 de 0,266 em casamento
+parcial** (0,210 em casamento exato, que é o critério mais rígido), contra números acima de 0,95 no texto
+limpo. Não é degradação, é falha.
 
 O motivo é que o normalizador trata parecidos de Unicode, acento e largura, e **não** trata a confusão entre
 letra e dígito, porque fazer isso sem contexto criaria falso positivo em toda parte: nem todo O no meio de

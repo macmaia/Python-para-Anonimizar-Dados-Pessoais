@@ -40,7 +40,7 @@ html:
     {
       "@context": "https://schema.org",
       "@type": "Book",
-      "name": "Python para anonimizar dados pessoais",
+      "name": "Python para Anonimizar Dados Pessoais",
       "url": "https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/",
       "inLanguage": "pt-BR",
       "description": "Curso pratico em Python para detectar e mascarar CPF, CNPJ, CNS e outros identificadores pessoais brasileiros em texto livre.",
@@ -78,6 +78,8 @@ html:
       },
       "isRelatedTo": {
         "@type": "Book",
+        "name": "Python Cookbook for Brazilian PII",
+        "inLanguage": "en",
         "url": "https://macmaia.github.io/Python-Cookbook-for-Brazilian-PII/"
       }
     }

@@ -14,6 +14,12 @@ myst:
 
 # 8. Antes de indexar, não só antes de perguntar
 
+```{code-cell}
+:tags: [skip-execution]
+%pip install -q tarja
+```
+
+
 O capítulo 5 tratou do texto que vai para o modelo em uma chamada. Hoje a maior parte do esforço de
 anonimização não está ali, está na ingestão para busca com recuperação, o RAG. O documento é partido em
 pedaços, cada pedaço vira vetor, e o índice fica.

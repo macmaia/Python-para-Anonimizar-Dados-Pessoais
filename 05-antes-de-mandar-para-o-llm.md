@@ -66,12 +66,19 @@ Mascarar é fácil de acreditar e difícil de garantir. O identificador que o de
 texto, e o texto já foi enviado.
 
 ```{code-cell}
-print("sobrou algo em 'seguro'?", tarja.residual(seguro))
-print("e aqui?", [m.entity for m in tarja.residual("sobrou um CPF 529.982.247-25 aqui")])
+print("sobrou algo em 'seguro'?", tarja.residual(seguro, report_invalid=True))
+print("e aqui?", [m.entity for m in tarja.residual("sobrou um CPF 529.982.247-25 aqui", report_invalid=True)])
 ```
 
 O `residual()` é uma segunda passada sobre o texto já tratado. Ele ignora os tokens e procura identificador de
 verdade. A regra prática: rode antes de enviar, e se voltar algo, não envie.
+
+**O `report_invalid=True` não é opcional aqui.** Sem ele, o `residual()` só relata valor cujo dígito
+verificador fecha, então uma sequência de onze dígitos com a cara exata de um CPF e o DV errado volta como
+lista vazia, e a lista vazia é lida como permissão para enviar. DV errado quer dizer que o valor não é um CPF
+válido. Não quer dizer que não é dado pessoal: é, com a mesma frequência, um erro de digitação num CPF real.
+No último portão antes de o texto sair, peça tudo o que tem forma de identificador e decida você. É o mesmo
+defeito que o tarja 0.9.0 fechou na própria linha de comando, e vale dizer duas vezes.
 
 Isso não prova que o texto está limpo, prova que o detector não acha mais nada. São coisas diferentes, e o
 capítulo 7 insiste nisso.
