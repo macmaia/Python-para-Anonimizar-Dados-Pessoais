@@ -1,8 +1,50 @@
 # Python para anonimizar dados pessoais
 
-> Curso pratico em Python para detectar e mascarar CPF, CNPJ, CNS e outros identificadores pessoais brasileiros em texto livre, com digito verificador e medicao de erro.
+> Livro aberto, em portugues, sobre encontrar e tratar dado pessoal brasileiro em texto livre, dentro de um
+> sistema que ja esta rodando. Oito capitulos com codigo que roda de verdade: a saida impressa em cada
+> pagina e produzida na construcao do livro, nao copiada a mao. Escrito para quem programa em Python.
+> Texto sob CC BY 4.0, codigo sob Apache 2.0.
+
+O instrumento usado ao longo do livro e o tarja (`pip install tarja`), biblioteca aberta sem dependencia
+de execucao, que detecta 17 tipos de identificador brasileiro com digito verificador e contexto em
+portugues.
+
+Cinco situacoes em que este livro serve:
+
+- antes de mandar texto para um modelo de linguagem, em RAG, resumo ou busca sobre acervo proprio
+- como portao de saida, antes de um arquivo ir para fornecedor, anexo de e-mail ou bucket publico
+- para medir exposicao num acervo, respondendo quantos documentos tem CPF, de que tipo e onde
+- antes de dar acesso a quem nao precisa do dado, como analista, fornecedor ou homologacao
+- para conferir o trabalho de outra ferramenta, com uma segunda passada no texto ja mascarado
+
+Duas coisas a saber antes de citar qualquer numero daqui:
+
+- **Mascarar, pseudonimizar e anonimizar sao coisas diferentes, e so a terceira tira o dado do alcance da
+  LGPD.** O livro nao ensina a anonimizar no sentido do art. 12, e o capitulo 4 explica por que, e o
+  capitulo 7 e inteiro sobre os limites.
+- **Digito verificador errado nao quer dizer que o numero nao e dado pessoal.** Costuma ser erro de
+  digitacao ou de OCR num identificador real, e medido, um CPF com um digito corrompido reconstroi para
+  um unico CPF valido em cerca de 93% dos casos.
+
+## Capitulos
+
+- [1. Por que formato nao basta](https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/01-por-que-formato-nao-basta.html): por que uma regex de CPF gera falso positivo em massa
+- [2. Digito verificador](https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/02-digito-verificador.html): a regra do CPF escrita a mao antes de usar biblioteca
+- [3. Quando o contexto decide](https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/03-quando-o-contexto-decide.html): identificador sem digito verificador, e a palavra-chave obrigatoria
+- [4. Mascarar, pseudonimizar, anonimizar](https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/04-mascarar-pseudonimizar-anonimizar.html): o que cada escolha permite e impede depois
+- [5. Antes de mandar para o LLM](https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/05-antes-de-mandar-para-o-llm.html): tirar o identificador sem quebrar a busca
+- [6. Medir se esta funcionando](https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/06-medir-se-esta-funcionando.html): a sua propria taxa de erro, nos dois sentidos
+- [7. O que nada disso faz](https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/07-o-que-nada-disso-faz.html): nome, endereco, dado clinico em prosa, e os limites declarados
+- [8. Antes de indexar](https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/08-antes-de-indexar.html): o acervo de RAG, e o identificador partido entre pedacos
+
+## Ligacoes
 
 - Sitemap: https://macmaia.github.io/Python-para-Anonimizar-Dados-Pessoais/sitemap.xml
-- Library: https://pypi.org/project/tarja/
-- Source: https://github.com/macmaia/Python-para-Anonimizar-Dados-Pessoais
-- Companion book: https://macmaia.github.io/Python-Cookbook-for-Brazilian-PII/
+- Codigo do livro: https://github.com/macmaia/Python-para-Anonimizar-Dados-Pessoais
+- Biblioteca tarja: https://pypi.org/project/tarja/ e https://macmaia.github.io/tarja/
+- Plugin para o Microsoft Presidio: https://pypi.org/project/tarja-presidio/
+- Livro irmao, em ingles, nao e traducao: https://macmaia.github.io/Python-Cookbook-for-Brazilian-PII/
+
+## Contato
+
+Autora: Maria Alice Maia, https://github.com/macmaia. Contato: tarja@micah6ai.com
